@@ -2,9 +2,8 @@ import Playgrounds
 import Foundation
 
 #Playground {
-
     typealias Product = (name: String, price: Float)
-
+    
     
     let products: [Product] = [
         ("Time Magazine", 4.95),
@@ -16,18 +15,18 @@ import Foundation
         ("Catfood", 8.99)
     ]
     let taxRate: Float = 0.09
-
+    
     
     func summarize(_ items: [Product]) -> (count: Int, total: Float, average: Float,
                                            cheapest: Product, mostExpensive: Product)? {
         guard let first = items.first else {
             return nil
         }
-
+        
         var total: Float = 0
         var cheapest = first
         var mostExpensive = first
-
+        
         for item in items {
             total += item.price
             if item.price < cheapest.price {
@@ -37,11 +36,11 @@ import Foundation
                 mostExpensive = item
             }
         }
-
+        
         let average = total / Float(items.count)
         return (items.count, total, average, cheapest, mostExpensive)
     }
-
+    
     
     func filterProducts(_ items: [Product], where condition: (Product) -> Bool) -> [Product] {
         var result: [Product] = []
@@ -52,8 +51,8 @@ import Foundation
         }
         return result
     }
-
-   
+    
+    
     if let summary = summarize(products) {
         let tax = summary.total * taxRate
         print("=== Summary ===")
@@ -65,12 +64,13 @@ import Foundation
         print(String(format: "Cheapest: %@ at $%.2f", summary.cheapest.name, summary.cheapest.price))
         print(String(format: "Most expensive: %@ at $%.2f", summary.mostExpensive.name, summary.mostExpensive.price))
     }
-
+    
     
     let over3 = filterProducts(products) { $0.price > 3.00 }
-
+    
     print("\n=== Items over $3.00 ===")
     for item in over3 {
         print(String(format: "%@: $%.2f", item.name, item.price))
     }
+    
 }
