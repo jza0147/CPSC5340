@@ -50,6 +50,13 @@ struct ContentView: View {
             .navigationTitle(Text("BuyMyGroceries"))
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 8) {
+                    // Conditional UI: only shows until an item is selected
+                    if subtotal == 0 {
+                        Text("Add an item to start your order")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+
                     SummaryRow(label: "Subtotal", amount: subtotal)
                     SummaryRow(label: "Delivery Fee (10%)", amount: deliveryFee)
                     Divider()
@@ -101,6 +108,7 @@ struct ListItem: View {
 
             Spacer()
 
+            // New UI element explored: Stepper (not covered in Module 2)
             Stepper("Quantity", value: $item.quantity, in: 0...10)
                 .labelsHidden()
         }
