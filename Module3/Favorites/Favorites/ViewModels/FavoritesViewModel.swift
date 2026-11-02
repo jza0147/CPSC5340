@@ -1,0 +1,65 @@
+//
+// FavoritesViewModel.swift : Favorites
+//
+// Created by Jonathon Andrews on 11/1/26.
+// All Rights Reserved.
+
+
+import Foundation
+import SwiftUI
+
+class FavoritesViewModel : ObservableObject {
+    
+    @Published var cities: [CityModel] = sampleCities
+    @Published var hobbies: [HobbyModel] = sampleHobbies
+    @Published var books: [BookModel] = sampleBooks
+    
+    
+    
+    
+}
+
+
+let sampleCities: [CityModel] = [
+
+    CityModel(id : 1, cityName: "Cape Town", cityImage: "capetown", isFavorite: false),
+    CityModel(id : 2, cityName: "Copenhagen", cityImage: "copenhagen", isFavorite: false),
+    CityModel(id : 3, cityName: "Lisbon", cityImage: "lisbon", isFavorite: false),
+    CityModel(id : 4, cityName: "Reykjavik", cityImage: "reykjavik", isFavorite: false),
+    CityModel(id : 5, cityName: "Warsaw", cityImage: "warsaw", isFavorite: false),
+    CityModel(id : 6, cityName: "London", cityImage: "london", isFavorite: false),
+    CityModel(id : 7, cityName: "Monaco", cityImage: "monaco", isFavorite: false),
+    CityModel(id : 8, cityName: "Amsterdam", cityImage: "amsterdam", isFavorite: false),
+    CityModel(id : 9, cityName: "Los Angeles", cityImage: "losangeles", isFavorite: false)
+]
+
+
+let sampleHobbies: [HobbyModel] = [
+    HobbyModel(id : 1, hobbyName: "Painting", hobbyImage: "🎨", isFavorite: false),
+    HobbyModel(id : 2, hobbyName: "Photography", hobbyImage: "📷", isFavorite: false),
+    HobbyModel(id : 3, hobbyName: "Guitar", hobbyImage: "🎸", isFavorite: false),
+    HobbyModel(id : 4, hobbyName: "Yoga", hobbyImage: "🧘‍♀️", isFavorite: false),
+    HobbyModel(id : 5, hobbyName: "Gardening", hobbyImage: "🪴", isFavorite: false),
+    HobbyModel(id : 6, hobbyName: "Cooking", hobbyImage: "🍳", isFavorite: false),
+    HobbyModel(id : 7, hobbyName: "Hiking", hobbyImage: "🥾", isFavorite: false),
+    HobbyModel(id : 8, hobbyName: "Writing", hobbyImage: "✍️", isFavorite: false),
+    HobbyModel(id : 9, hobbyName: "Dancing", hobbyImage: "💃", isFavorite: false),
+    HobbyModel(id : 10, hobbyName: "Knitting", hobbyImage: "🧶", isFavorite: false),
+    HobbyModel(id : 11, hobbyName: "Gaming", hobbyImage: "🎮", isFavorite: false),
+    HobbyModel(id : 12, hobbyName: "Calligraphy", hobbyImage: "✒️", isFavorite: false),
+]
+
+let sampleBooks: [BookModel] = [
+    BookModel(id : 1, bookName: "To Kill a Mockingbird", bookAuthor: "Harper Lee", isFavorite: false),
+    BookModel(id : 2, bookName: "1984", bookAuthor: "George Orwell", isFavorite: false),
+    BookModel(id : 3, bookName: "Pride and Prejudice", bookAuthor: "Jane Austen", isFavorite: false),
+    BookModel(id : 4, bookName: "The Great Gatsby", bookAuthor: "F. Scott Fitzgerald", isFavorite: false),
+    BookModel(id : 5, bookName: "The Catcher in the Rye", bookAuthor: "J.D. Salinger", isFavorite: false),
+    BookModel(id : 6, bookName: "The Hobbit", bookAuthor: "J.R.R. Tolkien", isFavorite: false),
+    BookModel(id : 7, bookName: "Fahrenheit 451", bookAuthor: "Ray Bradbury", isFavorite: false),
+    BookModel(id : 8, bookName: "Jane Eyre", bookAuthor: "Charlotte Brontë", isFavorite: false),
+    BookModel(id : 9, bookName: "The Alchemist", bookAuthor: "Paulo Coelho", isFavorite: false),
+    BookModel(id : 10, bookName: "The Book Thief", bookAuthor: "Markus Zusak", isFavorite: false),
+    BookModel(id : 11, bookName: "Moby-Dick", bookAuthor: "Herman Melville", isFavorite: false),
+    BookModel(id : 12, bookName: "Crime and Punishment", bookAuthor: "Fyodor Dostoevsky", isFavorite: false)
+]
