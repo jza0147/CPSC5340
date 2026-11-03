@@ -35,12 +35,17 @@ struct CityCardView: View {
                     Image(systemName: city.isFavorite ? "heart.fill" : "heart")
                         .padding(6)
                         .foregroundStyle(city.isFavorite ? .red : .white)
+                        .background(Color.black.opacity(0.35))
+                    
+                        }
                 }
+            .padding(.horizontal, 30)
+            .padding(.bottom, 10)
             }
-            .padding()
+            .shadow(radius: 3)
         }
     }
-}
+
 
 #Preview {
     CityCardView(city: CityModel(id: 1, cityName: "Amsterdam", cityImage: "amsterdam", isFavorite: false))

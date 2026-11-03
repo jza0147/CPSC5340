@@ -35,18 +35,18 @@ let sampleCities: [CityModel] = [
 
 
 let sampleHobbies: [HobbyModel] = [
-    HobbyModel(id : 1, hobbyName: "Painting", hobbyImage: "🎨", isFavorite: false),
-    HobbyModel(id : 2, hobbyName: "Photography", hobbyImage: "📷", isFavorite: false),
-    HobbyModel(id : 3, hobbyName: "Guitar", hobbyImage: "🎸", isFavorite: false),
-    HobbyModel(id : 4, hobbyName: "Yoga", hobbyImage: "🧘‍♀️", isFavorite: false),
-    HobbyModel(id : 5, hobbyName: "Gardening", hobbyImage: "🪴", isFavorite: false),
-    HobbyModel(id : 6, hobbyName: "Cooking", hobbyImage: "🍳", isFavorite: false),
-    HobbyModel(id : 7, hobbyName: "Hiking", hobbyImage: "🥾", isFavorite: false),
-    HobbyModel(id : 8, hobbyName: "Writing", hobbyImage: "✍️", isFavorite: false),
-    HobbyModel(id : 9, hobbyName: "Dancing", hobbyImage: "💃", isFavorite: false),
-    HobbyModel(id : 10, hobbyName: "Knitting", hobbyImage: "🧶", isFavorite: false),
-    HobbyModel(id : 11, hobbyName: "Gaming", hobbyImage: "🎮", isFavorite: false),
-    HobbyModel(id : 12, hobbyName: "Calligraphy", hobbyImage: "✒️", isFavorite: false),
+    HobbyModel(id : 1, hobbyName: "Painting", hobbyIcon: "🎨", isFavorite: false),
+    HobbyModel(id : 2, hobbyName: "Photography", hobbyIcon: "📷", isFavorite: false),
+    HobbyModel(id : 3, hobbyName: "Guitar", hobbyIcon: "🎸", isFavorite: false),
+    HobbyModel(id : 4, hobbyName: "Yoga", hobbyIcon: "🧘‍♀️", isFavorite: false),
+    HobbyModel(id : 5, hobbyName: "Gardening", hobbyIcon: "🪴", isFavorite: false),
+    HobbyModel(id : 6, hobbyName: "Cooking", hobbyIcon: "🍳", isFavorite: false),
+    HobbyModel(id : 7, hobbyName: "Hiking", hobbyIcon: "🥾", isFavorite: false),
+    HobbyModel(id : 8, hobbyName: "Writing", hobbyIcon: "✍️", isFavorite: false),
+    HobbyModel(id : 9, hobbyName: "Dancing", hobbyIcon: "💃", isFavorite: false),
+    HobbyModel(id : 10, hobbyName: "Knitting", hobbyIcon: "🧶", isFavorite: false),
+    HobbyModel(id : 11, hobbyName: "Gaming", hobbyIcon: "🎮", isFavorite: false),
+    HobbyModel(id : 12, hobbyName: "Calligraphy", hobbyIcon: "✒️", isFavorite: false),
 ]
 
 let sampleBooks: [BookModel] = [

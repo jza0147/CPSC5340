@@ -10,7 +10,7 @@ import Foundation
 struct HobbyModel : Identifiable {
     let id : Int
     let hobbyName : String
-    let hobbyImage : String
+    let hobbyIcon : String
     var isFavorite : Bool = false
 }
 
