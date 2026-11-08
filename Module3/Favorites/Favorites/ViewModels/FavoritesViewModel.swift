@@ -14,11 +14,60 @@ class FavoritesViewModel : ObservableObject {
     @Published var hobbies: [HobbyModel] = sampleHobbies
     @Published var books: [BookModel] = sampleBooks
     
+    private let cityManager = CategoryManager<CityModel>(storageKey: "favoriteCities")
+    private let hobbyManager = CategoryManager<HobbyModel>(storageKey: "favoriteHobbies")
+    private let bookManager = CategoryManager<BookModel>(storageKey: "favoriteBooks")
     
     
+    init() {
+        cities = cityManager.initializeFavorites(items: sampleCities)
+        hobbies = hobbyManager.initializeFavorites(items: sampleHobbies)
+        books = bookManager.initializeFavorites(items: sampleBooks)
+    }
     
+    func filteredCities(searchText: String) -> [CityModel] {
+        cityManager.filteredItems(items: cities, searchText: searchText)
+    }
+    
+    func toggleFavoriteCity(city: CityModel) {
+        cityManager.toggleFavorite(items: &cities, targetItem: city)
+        
+        }
+            
+   
+    func filteredHobbies(searchText: String) -> [HobbyModel] {
+        hobbyManager.filteredItems(items: hobbies, searchText: searchText)
+    }
+    
+       
+    func toggleFavoriteHobby(hobby: HobbyModel) {
+        hobbyManager.toggleFavorite(items: &hobbies, targetItem: hobby)
+        
+        }
+    func filteredBooks(searchText: String) -> [BookModel] {
+        bookManager.filteredItems(items: books, searchText: searchText)
+    }
+    
+    func toggleFavoriteBook(book: BookModel) {
+        bookManager.toggleFavorite(items: &books, targetItem: book)
+    }
+    
+    // Favorites screen reads these. Because they're computed from the
+    // @Published arrays, the screen updates the moment a heart is tapped.
+    var favoriteCities: [CityModel] { cities.filter { $0.isFavorite } }
+    var favoriteHobbies: [HobbyModel] { hobbies.filter { $0.isFavorite } }
+    var favoriteBooks: [BookModel] { books.filter { $0.isFavorite } }
+    
+    var hasFavorites: Bool {
+        !favoriteCities.isEmpty || !favoriteHobbies.isEmpty || !favoriteBooks.isEmpty
+    }
+    
+    func clearAllFavorites() {
+        cityManager.clearFavorites(items: &cities)
+        hobbyManager.clearFavorites(items: &hobbies)
+        bookManager.clearFavorites(items: &books)
+    }
 }
-
 
 let sampleCities: [CityModel] = [
 
@@ -50,16 +99,16 @@ let sampleHobbies: [HobbyModel] = [
 ]
 
 let sampleBooks: [BookModel] = [
-    BookModel(id : 1, bookName: "To Kill a Mockingbird", bookAuthor: "Harper Lee", isFavorite: false),
-    BookModel(id : 2, bookName: "1984", bookAuthor: "George Orwell", isFavorite: false),
-    BookModel(id : 3, bookName: "Pride and Prejudice", bookAuthor: "Jane Austen", isFavorite: false),
-    BookModel(id : 4, bookName: "The Great Gatsby", bookAuthor: "F. Scott Fitzgerald", isFavorite: false),
-    BookModel(id : 5, bookName: "The Catcher in the Rye", bookAuthor: "J.D. Salinger", isFavorite: false),
-    BookModel(id : 6, bookName: "The Hobbit", bookAuthor: "J.R.R. Tolkien", isFavorite: false),
-    BookModel(id : 7, bookName: "Fahrenheit 451", bookAuthor: "Ray Bradbury", isFavorite: false),
-    BookModel(id : 8, bookName: "Jane Eyre", bookAuthor: "Charlotte Brontë", isFavorite: false),
-    BookModel(id : 9, bookName: "The Alchemist", bookAuthor: "Paulo Coelho", isFavorite: false),
-    BookModel(id : 10, bookName: "The Book Thief", bookAuthor: "Markus Zusak", isFavorite: false),
-    BookModel(id : 11, bookName: "Moby-Dick", bookAuthor: "Herman Melville", isFavorite: false),
-    BookModel(id : 12, bookName: "Crime and Punishment", bookAuthor: "Fyodor Dostoevsky", isFavorite: false)
+    BookModel(id : 1, bookTitle: "To Kill a Mockingbird", bookAuthor: "Harper Lee", isFavorite: false),
+    BookModel(id : 2, bookTitle: "1984", bookAuthor: "George Orwell", isFavorite: false),
+    BookModel(id : 3, bookTitle: "Pride and Prejudice", bookAuthor: "Jane Austen", isFavorite: false),
+    BookModel(id : 4, bookTitle: "The Great Gatsby", bookAuthor: "F. Scott Fitzgerald", isFavorite: false),
+    BookModel(id : 5, bookTitle: "The Catcher in the Rye", bookAuthor: "J.D. Salinger", isFavorite: false),
+    BookModel(id : 6, bookTitle: "The Hobbit", bookAuthor: "J.R.R. Tolkien", isFavorite: false),
+    BookModel(id : 7, bookTitle: "Fahrenheit 451", bookAuthor: "Ray Bradbury", isFavorite: false),
+    BookModel(id : 8, bookTitle: "Jane Eyre", bookAuthor: "Charlotte Brontë", isFavorite: false),
+    BookModel(id : 9, bookTitle: "The Alchemist", bookAuthor: "Paulo Coelho", isFavorite: false),
+    BookModel(id : 10, bookTitle: "The Book Thief", bookAuthor: "Markus Zusak", isFavorite: false),
+    BookModel(id : 11, bookTitle: "Moby-Dick", bookAuthor: "Herman Melville", isFavorite: false),
+    BookModel(id : 12, bookTitle: "Crime and Punishment", bookAuthor: "Fyodor Dostoevsky", isFavorite: false)
 ]

@@ -14,22 +14,27 @@ struct CityCardView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image(city.cityImage)
-                .resizable()
-                .scaledToFill()
+          
+            Color.clear
+                .frame(maxWidth: .infinity)
                 .frame(height: 140)
+                .overlay(
+                    Image(city.cityImage)
+                        .resizable()
+                        .scaledToFill()
+                )
                 .clipped()
 
             HStack {
                 Text(city.cityName)
-                    .font(.system(size: 18, weight: .bold)) // keep your existing weight
+                    .font(.system(size: 18, weight: .bold)) 
                     .foregroundColor(.white)
                     .padding(6)
                     .background(Color.black.opacity(0.35))
 
                 Spacer()
                 Button(action: {
-                    print("Tapped for \(city.cityName)")
+                    favorites.toggleFavoriteCity(city: city)
                     
                 }) {
                     Image(systemName: city.isFavorite ? "heart.fill" : "heart")
